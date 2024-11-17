@@ -9,6 +9,11 @@ export async function GET() {
       damageLocation: "Left Engine 1",
     },
     {
+      damageType: "Panel Rust",
+      status: "Minor",
+      damageLocation: "Left Wing Tip",
+    },
+    {
       damageType: "Dirty Windshield",
       status: "Warning",
       damageLocation: "Cockpit",
