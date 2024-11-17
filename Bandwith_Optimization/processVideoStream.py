@@ -420,9 +420,16 @@ def process_video(video_file, output_file="VideoData/processed_video.avi"):
 
 
 if __name__ == "__main__":
+    old_cwd = os.getcwd()
+    # set cwd to this folder
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
     if debug:
         # strip_drone_movement("VideoData/Motionful_output.avi")
         # strip_similar_frames("VideoData/Motionful_output.avi")
         strip_no_motion("VideoData/Motionful_output.avi")
     else:
         process_video("VideoData/Motionful_output.avi")
+
+    # reset cwd
+    os.chdir(old_cwd)
