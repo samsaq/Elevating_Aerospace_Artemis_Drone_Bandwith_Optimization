@@ -1,6 +1,4 @@
 import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
 import { button as buttonStyles } from "@nextui-org/theme";
 
 import { siteConfig } from "@/config/site";
@@ -54,7 +52,12 @@ export default function Home() {
           <img
             src="/plane_scan_image-removebackground.png"
             alt="Drone scanning airplane illustration"
-            className="w-full max-w-md mx-auto"
+            className="hidden dark:block w-full max-w-md mx-auto"
+          />
+          <img
+            src="/plane_scan_image.webp"
+            alt="Drone scanning airplane illustration"
+            className="block dark:hidden w-full max-w-md mx-auto"
           />
         </div>
       </div>
