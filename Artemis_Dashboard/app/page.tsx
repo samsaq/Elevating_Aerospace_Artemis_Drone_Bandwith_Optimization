@@ -7,7 +7,7 @@ import { GithubIcon } from "@/components/icons";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 min-h-[80vh]">
       <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl w-full px-6">
         <div className="md:w-1/2">
           <div className="inline-block max-w-xl text-center justify-center my-4">
