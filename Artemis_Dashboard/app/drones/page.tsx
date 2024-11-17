@@ -1,7 +1,32 @@
-import { title } from "@/components/primitives";
-import { DroneStatusCard } from "@/components/droneStatusCard";
+"use client";
 
-export default function AboutPage() {
+import { useState, useEffect } from "react";
+
+import { title } from "@/components/primitives";
+import {
+  DroneStatusCard,
+  DroneStatusCardProps,
+} from "@/components/droneStatusCard";
+
+export default function DroneStatusPage() {
+  const [droneStatuses, setDroneStatuses] = useState<DroneStatusCardProps[]>(
+    []
+  );
+
+  useEffect(() => {
+    fetchDroneStatuses();
+  }, []);
+
+  const fetchDroneStatuses = async () => {
+    try {
+      const response = await fetch("/api/drone-status");
+      const data = await response.json();
+      setDroneStatuses(data);
+    } catch (error) {
+      console.error("Error fetching drone statuses:", error);
+    }
+  };
+
   return (
     <div>
       <h1 className={`${title()} underline underline-offset-4`}>
@@ -9,24 +34,9 @@ export default function AboutPage() {
       </h1>
       <div className="mt-8">
         <div className="flex flex-col items-center">
-          <DroneStatusCard
-            name="Inpection-1"
-            status="Active"
-            location="Left Engine 1"
-            currentTask="Inspect Engine"
-          />
-          <DroneStatusCard
-            name="Inpection-2"
-            status="Charging"
-            location="Right Engine 1"
-            currentTask="Inspect Engine"
-          />
-          <DroneStatusCard
-            name="Inpection-3"
-            status="Maintenance"
-            location="Hangar"
-            currentTask="Maintenance"
-          />
+          {droneStatuses.map((drone) => (
+            <DroneStatusCard key={drone.name} {...drone} />
+          ))}
         </div>
       </div>
     </div>
