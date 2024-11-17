@@ -18,7 +18,7 @@ export default function Home() {
               </span>
               <span className={title()}>with&nbsp;</span>
               <br />
-              <span className={title({})}>DamageDetect</span>
+              <span className={title({})}>DamageDetect: AeroGuard</span>
             </div>
             <div className={subtitle({ class: "mt-4" })}>
               Do your line maintenance faster and safer than ever before.
